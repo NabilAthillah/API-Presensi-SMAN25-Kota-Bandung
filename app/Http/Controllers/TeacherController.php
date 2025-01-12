@@ -37,31 +37,31 @@ class TeacherController extends Controller
     }
 
     public function setTeacher(Request $request) {
-        if($request->nip) {
+        if(!$request->nip) {
             return response()->json([
                 'message' => 'NIP tidak boleh kosong',
             ], 403);
         }
 
-        if($request->name) {
+        if(!$request->name) {
             return response()->json([
                 'message' => 'Nama tidak boleh kosong',
             ], 403);
         }
 
-        if($request->email) {
+        if(!$request->email) {
             return response()->json([
                 'message' => 'Email tidak boleh kosong',
             ], 403);
         }
 
-        if($request->address) {
+        if(!$request->address) {
             return response()->json([
                 'message' => 'Alamat tidak boleh kosong',
             ], 403);
         }
 
-        if($request->phone_number) {
+        if(!$request->phone_number) {
             return response()->json([
                 'message' => 'Nomor Handphone tidak boleh kosong',
             ], 403);
@@ -96,31 +96,31 @@ class TeacherController extends Controller
     }
 
     public function putTeacher(Request $request, $nip) {
-        if($request->nip) {
+        if(!$request->nip) {
             return response()->json([
                 'message' => 'NIP tidak boleh kosong',
             ], 403);
         }
 
-        if($request->name) {
+        if(!$request->name) {
             return response()->json([
                 'message' => 'Nama tidak boleh kosong',
             ], 403);
         }
 
-        if($request->email) {
+        if(!$request->email) {
             return response()->json([
                 'message' => 'Email tidak boleh kosong',
             ], 403);
         }
 
-        if($request->address) {
+        if(!$request->address) {
             return response()->json([
                 'message' => 'Alamat tidak boleh kosong',
             ], 403);
         }
 
-        if($request->phone_number) {
+        if(!$request->phone_number) {
             return response()->json([
                 'message' => 'Nomor Handphone tidak boleh kosong',
             ], 403);
