@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
     public function run()
     {
         Teachers::create([
-            'nip' => '000000000000000000',
+            'nip' => '123123123',
             'name' => 'Administrator SMAN 25 Kota Bandung',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('adminsman25kotabandung'),
