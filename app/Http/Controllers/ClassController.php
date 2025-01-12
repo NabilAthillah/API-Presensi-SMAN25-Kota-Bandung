@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class ClassController extends Controller
 {
     public function getClasses() {
-        $classes = Classes::with('teachers')->all();
+        $classes = Classes::with('teacher_employees')->all();
     }
 }
