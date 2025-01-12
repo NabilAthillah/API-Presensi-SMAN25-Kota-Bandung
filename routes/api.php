@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,7 @@ Route::prefix('data')->group(function() {
         Route::get('student', [StudentController::class, 'getStudents']);
         Route::get('class', [ClassController::class, 'getClasses']);
         Route::get('teacher', [TeacherController::class, 'getTeachers']);
+        Route::get('subject', [SubjectController::class, 'getSubjects']);
     });
     
     Route::prefix('store')->group(function() {
@@ -48,21 +50,25 @@ Route::prefix('data')->group(function() {
         Route::post('student', [StudentController::class, 'setStudent']);
         Route::post('class', [ClassController::class, 'setClass']);
         Route::post('teacher', [TeacherController::class, 'setTeacher']);
+        Route::post('subject', [SubjectController::class, 'setSubject']);
     });
 
     Route::prefix('getByPrimary')->group(function() {
         Route::get('/student/{nisn}', [StudentController::class, 'getStudent']);
         Route::get('/class/{name}', [ClassController::class, 'getClass']);
         Route::get('/teacher/{nip}', [TeacherController::class, 'getTeacher']);
+        Route::get('/subject/{uuid_subject}', [SubjectController::class, 'getSubject']);
     });
 
     Route::prefix('edit')->group(function() {
         Route::post('/class/{name}', [ClassController::class, 'putClass']);
         Route::post('/teacher/{nip}', [TeacherController::class, 'putTeacher']);
+        Route::post('/subject/{uuid_subject}', [SubjectController::class, 'putSubject']);
     });
 
     Route::prefix('delete')->group(function() {
         Route::post('/class/{name}', [ClassController::class, 'deleteClass']);
         Route::post('/teacher/{nip}', [TeacherController::class, 'deleteTeacher']);
+        Route::post('/subject/{uuid_subject}', [SubjectController::class, 'deleteSubject']);
     });
 });
