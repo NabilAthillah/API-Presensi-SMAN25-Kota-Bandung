@@ -9,7 +9,7 @@ use Str;
 class PresenceController extends Controller
 {
     public function getPresences() {
-        $presences = Presences::with('subjects', 'students')->all();
+        $presences = Presences::with('subjects', 'students')->get();
 
         return response()->json([
             'presences' => $presences

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function getStudents() {
-        $students = Students::with('parents', 'class')->all();
+        $students = Students::with('parents', 'class')->get();
 
         return response()->json([
             'students' => $students

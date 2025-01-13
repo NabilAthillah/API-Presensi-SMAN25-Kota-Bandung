@@ -9,7 +9,7 @@ use Str;
 class SubjectController extends Controller
 {
     public function getSubjects() {
-        $subjects = Subjects::with('teacher_employees', 'class')->all();
+        $subjects = Subjects::with('teacher_employees', 'class')->get();
 
         return response()->json([
             'subjects' => $subjects
