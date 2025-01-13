@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ParentController extends Controller
 {
     public function getParents() {
-        $parents = Parent::all();
+        $parents = Parents::all();
 
         return response()->json([
             'parents' => $parents
