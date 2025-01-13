@@ -17,7 +17,7 @@ class Subjects extends Model
 
     public function teacher()
     {
-        return $this->belongsTo(Teachers::class, 'nip');
+        return $this->belongsTo(Teachers::class, 'teacher');
     }
 
     public function class()

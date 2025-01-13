@@ -35,7 +35,7 @@ class ClassController extends Controller
             ], 403);
         }
 
-        if(!$request->classrom_teacher) {
+        if(!$request->classroom_teacher) {
             return response()->json([
                 'message' => 'Wali Kelas tidak boleh kosong'
             ], 403);
