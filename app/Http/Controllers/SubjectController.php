@@ -9,7 +9,7 @@ use Str;
 class SubjectController extends Controller
 {
     public function getSubjects() {
-        $subjects = Subjects::with('teacher_employees', 'class')->get();
+        $subjects = Subjects::with('teacher', 'class')->get();
 
         return response()->json([
             'subjects' => $subjects
@@ -17,7 +17,7 @@ class SubjectController extends Controller
     }
 
     public function getSubject($uuid_subject) {
-        $subject = Subjects::where('uuid_subject', $uuid_subject)->with('teacher_employees', 'class')->first();
+        $subject = Subjects::where('uuid_subject', $uuid_subject)->with('teacher', 'class')->first();
         if(!$subject) {
             return response()->json([
                 'message' => 'Mata Pelajaran dengan id ' . $uuid_subject . ' tidak ditemukan'
@@ -133,7 +133,7 @@ class SubjectController extends Controller
             ], 403);
         }
 
-        $subject= Subjects::where('uuid_subject', $uuid_subject)->with('teacher_employees', 'class')->first();
+        $subject= Subjects::where('uuid_subject', $uuid_subject)->with('teacher', 'class')->first();
         if(!$subject) {
             return response()->json([
                 'message' => 'Mata Pelajaran dengan id ' . $uuid_subject . ' tidak ditemukan'

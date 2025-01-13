@@ -9,7 +9,7 @@ use Str;
 class PresenceController extends Controller
 {
     public function getPresences() {
-        $presences = Presences::with('subjects', 'students')->get();
+        $presences = Presences::with('subject', 'student')->get();
 
         return response()->json([
             'presences' => $presences
@@ -17,7 +17,7 @@ class PresenceController extends Controller
     }
 
     public function getPresence($uuid_presence) {
-        $presence = Presences::where('uuid_presence', $uuid_presence)->with('subjects', 'students')->first();
+        $presence = Presences::where('uuid_presence', $uuid_presence)->with('subject', 'student')->first();
         if(!$presence) {
             return response()->json([
                 'message' => 'Absen dengan id ' . $uuid_presence . ' tidak ditemukan'
@@ -81,7 +81,7 @@ class PresenceController extends Controller
             ], 403);
         }
 
-        $presence= Presences::where('uuid_presence', $uuid_presence)->with('subjects', 'students')->first();
+        $presence= Presences::where('uuid_presence', $uuid_presence)->with('subject', 'student')->first();
         if(!$presence) {
             return response()->json([
                 'message' => 'Absen dengan id ' . $uuid_presence . ' tidak ditemukan'

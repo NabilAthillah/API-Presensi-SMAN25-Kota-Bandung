@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function getStudents() {
-        $students = Students::with('parents', 'class')->get();
+        $students = Students::with('parent', 'class')->get();
 
         return response()->json([
             'students' => $students
@@ -17,7 +17,7 @@ class StudentController extends Controller
     }
 
     public function getStudent($nisn) {
-        $student = Students::where('nisn', $nisn)->with('parents', 'class')->first();
+        $student = Students::where('nisn', $nisn)->with('parent', 'class')->first();
 
         if($student) {
             return response()->json([

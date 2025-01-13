@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ClassController extends Controller
 {
     public function getClasses() {
-        $classes = Classes::with('teacher_employees')->get();
+        $classes = Classes::with('teacher')->get();
 
         return response()->json([
             'classes' => $classes
@@ -16,7 +16,7 @@ class ClassController extends Controller
     }
 
     public function getClass($name) {
-        $class = Classes::where('name', $name)->with('teacher_employees')->first();
+        $class = Classes::where('name', $name)->with('teacher')->first();
         if(!$class) {
             return response()->json([
                 'message' => 'Kelas ' . $name . ' tidak ditemukan'
@@ -77,7 +77,7 @@ class ClassController extends Controller
             ], 403);
         }
 
-        $class= Classes::where('name', $name)->with('teacher_employees')->first();
+        $class= Classes::where('name', $name)->with('teacher')->first();
         if(!$class) {
             return response()->json([
                 'message' => 'Kelas ' . $name . ' tidak ditemukan'
